@@ -1,0 +1,89 @@
+body{
+	border:0px !important;
+	padding: 0px 0px 0px 0px!important;
+	margin: 0px !important;
+}
+.container-fluid{
+	padding: 0px !important;
+}
+.fondo{
+	background-color: #FCFCFC;
+}
+#img-fondo{
+	background-image:url(../img/img1.jpg);
+	background-size:100%;
+	background-repeat: no-repeat;
+	height: 500px;
+	padding-top: 80px;
+}
+.navbar{
+	height: 80px !important;
+	background-color: #535151 !important;
+	color: white;
+}
+.jumbotron{
+	width: 50%;
+	margin: auto;
+	background-color: rgba(255,255,255,0.7);
+}
+.txt-jumbo{
+	padding: 0px 80px;
+	text-align: center;
+	font-weight: bold;
+}
+.txt-centrado{
+	text-align: center;
+	width: 100%;
+	background-color: #E5E5E5;
+	height: 40px;
+}
+.txt-img{
+	width: 100%;
+	text-align: center;
+	background-color: #535151;
+	color: white;
+	padding: 10px;
+}
+.cat-img:hover{
+	 
+	transform: scale(1.5) rotate(360deg);;
+	transition: 0.5s;
+	cursor: pointer;
+
+}
+.cat-img{
+	border-radius: 50%;
+}
+.cont-img{
+	overflow: hidden;
+	background-color: black;
+
+}
+#fb{
+	font-size: 1.5em;
+	color:white;
+}
+#fb:hover{
+	color:blue;
+}
+#ins{
+	font-size: 1.5em;
+	color:white;
+}
+#ins:hover{
+	color:orange;
+}
+#twi{
+	font-size: 1.5em;
+	color:white;
+}
+#twi:hover{
+	color:skyblue;
+}
+#you{
+	font-size: 1.5em;
+	color:white;
+}
+#you:hover{
+	color:red;
+}
