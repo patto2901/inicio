@@ -1,7 +1,5 @@
 body{
-	border:0px !important;
-	padding: 0px 0px 0px 0px!important;
-	margin: 0px !important;
+
 }
 .container-fluid{
 	padding: 0px !important;
@@ -89,5 +87,52 @@ body{
 	color:red;
 }
 .my-navbar{
-	padding: 20px;
+	
+}
+.titulo{
+	margin-top: 60px;
+	text-align: center;
+}
+.img-tienda:hover .txt-img-tienda{
+cursor: pointer;
+display:block;
+transform: translateY(-26px);
+color: black;
+
+}
+.txt-img-tienda{
+transition: all 1s;
+text-align: center;
+background-color: rgba(255,255,255,0.5);
+color:white;
+margin:auto;
+
+
+
+}
+.pre-img-tienda{
+	
+	padding-left: 25%;
+position: absolute;
+z-index: -1;
+}
+
+.img-tienda:hover .pre-img-tienda{
+z-index:10;
+}
+.img-tienda{
+
+	text-align: center;
+}
+#navbar-principal{
+	padding-left: 25%;
+}
+#navbar-principal li{
+	padding-left: 20px;
+}
+#bread1{
+	margin-top: 85px !important;
+}
+#Cantidad{
+width: 50px;
 }
