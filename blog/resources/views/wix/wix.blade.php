@@ -39,11 +39,7 @@
 			<p class="txt-img">Caballeros</p>
 		    </div>
 		</div>
-		<ul id="materias">
-		<li>Realidad aumentada</li>
-		<li>Framework para desarrollo web</li>			
-
-		</ul>
+		
 		<form>
 			<input id="nombre" type="text" name="nombre">
 			<input id="boton" type="submit" name="boton">
