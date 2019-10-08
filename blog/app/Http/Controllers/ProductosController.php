@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Producto;
 use App\Categoria;
 
-class CategoriasController extends Controller
+class ProductosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,9 @@ class CategoriasController extends Controller
     public function index()
     {
         //
-        $categorias=Categoria::all();
+        $productos=Producto::all();
 
-        return view('wix.Categorias.categorias',['categorias'=>$categorias]);
-
+        return view('wix.productos.productos',['productos'=>$productos]);
     }
 
     /**
@@ -29,7 +29,8 @@ class CategoriasController extends Controller
     public function create()
     {
         //
-        return view('wix.Categorias.nuevaCategoria');
+        $categorias=Categoria::all();
+        return view('wix.productos.nuevoProducto',['categorias'=>$categorias]);
     }
 
     /**
@@ -41,8 +42,20 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         //
-        Categoria::create($request->all());/** para guardar en la base de datos*/
-        return redirect('/categorias');/** para visualizar lo que mandamos*/
+        $path = $request->file('img')->store('productos');//input o name y la carpeta de la vista
+        //Producto::create($request->all()); forma sencilla
+        //forma detallada
+        $producto=new Producto;
+        $producto->nombre=$request->nombre;
+        $producto->costo=$request->costo;
+        $producto->descripcion=$request->descripcion;
+        $producto->marca=$request->marca;
+        $producto->cantidad=$request->cantidad;
+        $producto->categoria_id=$request->categoria_id;
+        $producto->img=$path;//guarda la ruta y path almacena la ruta
+        $producto->save();
+
+        return redirect('/productos');
     }
 
     /**
@@ -65,9 +78,6 @@ class CategoriasController extends Controller
     public function edit($id)
     {
         //
-        $categoria=Categoria::find($id);
-
-        return view('wix.categorias.editarCategoria',['categoria'=>$categoria]);
     }
 
     /**
@@ -80,10 +90,6 @@ class CategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $categoria=Categoria::find($id);
-         $categoria->nombre=$request->nombre;
-         $categoria->save();
-         return redirect('/categorias');
     }
 
     /**
@@ -94,8 +100,6 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        
-        Categoria::destroy($id);
-        return redirect('/categorias');
+        //
     }
 }

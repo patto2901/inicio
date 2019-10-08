@@ -14,6 +14,7 @@
 <div id="img_detalles">
 <img class="img-fluid" src="/img/dama.jpg"> 
 </div>
+
 	</div>
 	<div class="col-4">
 		<br><br><br><br>
@@ -35,6 +36,9 @@
 		lakdsjfnñakjsdn
 	</div>
 	
+</div>
+<div id="img-full" >
+	<img src="/img/dama.jpg">
 </div>
 
 @endsection

@@ -32,3 +32,7 @@ Route::get('tienda', function () {
 Route::get('tienda/detalles', function () {
     return view('wix.detalles');
 })->name('detallesproducto');
+
+Route::resource('categorias','CategoriasController');
+Route::resource('usuarios','UsersController');
+Route::resource('productos','ProductosController');

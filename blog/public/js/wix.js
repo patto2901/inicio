@@ -17,4 +17,14 @@ $("#agregar").click(function(){
 $("form").append("<input type='text' name='nombre'><br>");
 return false;
 });
+
+$("#img_detalles").click(function(){
+	$("#img-full").show("slow");
+});
+$("#img-full").click(function(){
+	$("#img-full").fadeOut("slow");
+});
+$(".detalles-producto").click(function(){
+	$("#producto-modal").modal("show");
+});
 });

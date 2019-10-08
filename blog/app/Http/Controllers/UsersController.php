@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Categoria;
 
-class CategoriasController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,6 @@ class CategoriasController extends Controller
     public function index()
     {
         //
-        $categorias=Categoria::all();
-
-        return view('wix.Categorias.categorias',['categorias'=>$categorias]);
-
     }
 
     /**
@@ -29,7 +24,6 @@ class CategoriasController extends Controller
     public function create()
     {
         //
-        return view('wix.Categorias.nuevaCategoria');
     }
 
     /**
@@ -41,8 +35,6 @@ class CategoriasController extends Controller
     public function store(Request $request)
     {
         //
-        Categoria::create($request->all());/** para guardar en la base de datos*/
-        return redirect('/categorias');/** para visualizar lo que mandamos*/
     }
 
     /**
@@ -65,9 +57,6 @@ class CategoriasController extends Controller
     public function edit($id)
     {
         //
-        $categoria=Categoria::find($id);
-
-        return view('wix.categorias.editarCategoria',['categoria'=>$categoria]);
     }
 
     /**
@@ -80,10 +69,6 @@ class CategoriasController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $categoria=Categoria::find($id);
-         $categoria->nombre=$request->nombre;
-         $categoria->save();
-         return redirect('/categorias');
     }
 
     /**
@@ -94,8 +79,6 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        
-        Categoria::destroy($id);
-        return redirect('/categorias');
+        //
     }
 }
