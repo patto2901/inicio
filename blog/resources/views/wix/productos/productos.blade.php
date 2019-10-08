@@ -17,16 +17,17 @@
 				<th>Marca</th>
 				<th>Cantidad</th>
 				<th>Categoría</th>
+				<th>Detalles</th>
 			</tr>
 			@foreach($productos as $producto)
                     <tr>
                     	<td>{{$loop->index+1}}</td>
-                    	<td><img class="img-fluid img-producto" src="{{asset('/img/'.$producto->img)}}"></td>
-                    	<td>{{$producto->nombre}}</td>
-                    	<td>{{$producto->costo}}</td>
-                    	<td>{{$producto->marca}}</td>
-                    	<td>{{$producto->cantidad}}</td>
-                    	<td>{{$producto->categoria_id}}</td>
+                    	<td class="producto-img"><img class="img-fluid img-producto" src="{{asset('/img/'.$producto->img)}}" alt="{{$producto->descripcion}}"></td>
+                    	<td class="producto-nombre">{{$producto->nombre}}</td>
+                    	<td class="producto-costo">{{$producto->costo}}</td>
+                    	<td class="producto-marca">{{$producto->marca}}</td>
+                    	<td class="producto-cantidad">{{$producto->cantidad}}</td>
+                    	<td class="producto-categoria">{{$producto->categoria_id}}</td>
                     	<td>
                           <button type="button" class="btn btn-outline-info detalles-producto">Detalles</button></td>
                     </tr>
@@ -43,7 +44,23 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <div class="container-fluid">
+       	<div class="row">
+       		<div class="col">
+       			<h2 id="modal-titulo"></h2>
+       			
+       		</div>
+       	</div>
+       	<div class="row">
+       		<div class="col">
+       			<img  id="modal-img" class="img-fluid" src="">
+       			<p id="modal-descripcion">
+       				
+       			</p>
+       		</div>
+       		
+       	</div>
+       </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

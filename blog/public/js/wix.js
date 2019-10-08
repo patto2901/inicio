@@ -25,6 +25,24 @@ $("#img-full").click(function(){
 	$("#img-full").fadeOut("slow");
 });
 $(".detalles-producto").click(function(){
+	//var producto=$(this).parent().parent().find(".producto-nombre").text();
+	//$("#modal-titulo").text(producto); pasa al modal lo que esta en el <tr>
+	$(this).parent().parent().find("td").each(function(i){
+       switch(i){
+       	case 1:
+       	$("#modal-img").attr("src",$(this).children().attr("src"));
+       	$("#modal-descripcion").text($(this).children().attr("alt"));
+       	break;
+       	case 2:
+       	$("#modal-titulo").text($(this).text());
+       	break;
+       	default:
+       	break;
+       	//MUESTRA TODO EN UN MODAL
+       }
+	});
+
 	$("#producto-modal").modal("show");
-});
+    });
+
 });
