@@ -36,3 +36,4 @@ Route::get('tienda/detalles', function () {
 Route::resource('categorias','CategoriasController');
 Route::resource('usuarios','UsersController');
 Route::resource('productos','ProductosController');
+Route::resource('roles','RolesController');

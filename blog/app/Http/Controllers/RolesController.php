@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Role;
-use App\User;
 
-class UsersController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,6 +16,8 @@ class UsersController extends Controller
     public function index()
     {
         //
+        $roles=Role::all();
+        return view('wix.roles.roles',['roles'=>$roles]);
     }
 
     /**
@@ -27,8 +28,7 @@ class UsersController extends Controller
     public function create()
     {
         //
-        $roles=Role::all();
-        return view('wix.usuarios.nuevoUsuario',['roles'=>$roles]);
+        return view('wix.roles.nuevoRol');
     }
 
     /**
@@ -40,17 +40,10 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
-        $usuario=new User;
-        $usuario->nombre=$request->nombre;
-        $usuario->correo=$request->correo;
-        $usuario->telefono=$request->telefono;
-        $usuario->password=bcrypt($request->password);
-        $usuario->role_id=$request->role_id;
+      Role::create($request->all());
 
-        $usuario->save();
-
-        return redirect('/usuarios');
-    } 
+      return redirect('/roles');
+    }
 
     /**
      * Display the specified resource.
