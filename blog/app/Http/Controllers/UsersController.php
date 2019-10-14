@@ -17,6 +17,9 @@ class UsersController extends Controller
     public function index()
     {
         //
+        $usuarios=User::all();//para hacer una consulta de mostrar todo de la tabla Users
+        return view('wix.usuarios.usuarios',['usuarios'=>$usuarios]);
+        //carpetaprincipal.carpetacontenido.archivo, pasar la variable a la vista a la variable recien creada
     }
 
     /**

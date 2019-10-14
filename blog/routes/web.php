@@ -34,6 +34,11 @@ Route::get('tienda/detalles', function () {
 })->name('detallesproducto');
 
 Route::resource('categorias','CategoriasController');
-Route::resource('usuarios','UsersController');
+Route::resource('usuarios','UsersController')->middleware('auth','admin');//auntenticar correos 
 Route::resource('productos','ProductosController');
 Route::resource('roles','RolesController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//cmd el comando php artisan make:middleware Check*campo*
+//Nos vamos a checar el archivo creado CheckaAdmin Kernel admin AuthenticatesUser app 
