@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col">
 		<br><br><br>
-		<form method="post" enctype="multipart/form-data" action="/usuarios">
+		<form method="post" enctype="multipart/form-data" action="/admin/usuarios">
 			@csrf
   <div class="form-group">
     <label for="nombre">Usuario</label>

@@ -42,7 +42,7 @@ class RolesController extends Controller
         //
       Role::create($request->all());
 
-      return redirect('/roles');
+      return redirect('/admin/roles');
     }
 
     /**

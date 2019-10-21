@@ -42,7 +42,7 @@ class CategoriasController extends Controller
     {
         //
         Categoria::create($request->all());/** para guardar en la base de datos*/
-        return redirect('/categorias');/** para visualizar lo que mandamos*/
+        return redirect('/admin/categorias');/** para visualizar lo que mandamos*/
     }
 
     /**

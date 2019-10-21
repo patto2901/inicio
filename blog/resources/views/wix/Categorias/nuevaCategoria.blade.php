@@ -8,7 +8,7 @@
 	<div class="col">
 		<br><br><br>
 		<h2>Nueva Categoria</h2>
-		<form method="post" action="/categorias">
+		<form method="post" action="/admin/categorias">
 			<!--si no ponemos eso nos marca error-->
 			@csrf
   <div class="form-group">

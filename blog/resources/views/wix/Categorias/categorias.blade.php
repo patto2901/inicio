@@ -21,10 +21,10 @@
           	<td>{{$loop->index+1}}</td>
           	<td>{{$categoria->nombre}}</td>
           	<td>
-          		<a class="btn btn-primary" href="/categorias/{{$categoria->id}}/edit" role="button">Editar</a>
+          		<a class="btn btn-primary" href="/admin/categorias/{{$categoria->id}}/edit" role="button">Editar</a>
           	</td>
           	<td>
-          		<form method="post" action="/categorias/{{$categoria->id}}">
+          		<form method="post" action="/admin/categorias/{{$categoria->id}}">
           			@csrf
           			@method('DELETE')
           			<button type="submit" class="btn btn-danger">Eliminar</button>

@@ -42,6 +42,14 @@ class ProductosController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+    'nombre' => 'required|max:255',
+    'costo' => 'numeric|required',
+    'descripcion'=>'required|alpha_num',
+    'marca'=>'required|alpha_num',
+    'cantidad'=>'required|integer',
+    'categoria_id'=>'required|integer',
+]);
         $path = $request->file('img')->store('productos');//input o name y la carpeta de la vista
         //Producto::create($request->all()); forma sencilla
         //forma detallada
@@ -55,7 +63,7 @@ class ProductosController extends Controller
         $producto->img=$path;//guarda la ruta y path almacena la ruta
         $producto->save();
 
-        return redirect('/productos');
+        return redirect('/admin/productos');
     }
 
     /**

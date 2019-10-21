@@ -27,8 +27,8 @@
           Categorias
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/categorias">Categorias</a>
-          <a class="dropdown-item" href="/categorias/create">Nuevas Categorias</a>
+          <a class="dropdown-item" href="/admin/categorias">Categorias</a>
+          <a class="dropdown-item" href="/admin/categorias/create">Nuevas Categorias</a>
       </div>
       </li>
       <li class="nav-item dropdown">
@@ -36,8 +36,26 @@
           Usuarios
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/usuarios">Usuarios</a>
-          <a class="dropdown-item" href="/usuarios/create">Nuevo Usuario</a>
+          <a class="dropdown-item" href="/admin/usuarios">Usuarios</a>
+          <a class="dropdown-item" href="/admin/usuarios/create">Nuevo Usuario</a>
+      </div>
+      </li>
+      	       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Productos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/admin/productos">Productos</a>
+          <a class="dropdown-item" href="/admin/productos/create">Nuevos Productos</a>
+      </div>
+      </li>
+      	       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Roles
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/admin/roles">Roles</a>
+          <a class="dropdown-item" href="/admin/roles/create">Nuevo Rol</a>
       </div>
       </li>
 			    </ul>

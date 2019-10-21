@@ -14,31 +14,39 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('cesar', function () {
-    return view('Hola soy cesar');
+Route::get('pumasraw',function(){
+	return "Hola Felipe Sánchez";
 });
-Route::get('utgz/{nombre?}', function ($nombre="Por favor ingresa un valor") {
-    return view('Hola'.$nombre);
+//Ruta con parametros
+Route::get('utgz/{nombre}',function($nombre){
+	return "Hola ".$nombre;
 });
-Route::get('ejemplo', function () {
-    return view('ejemplo');
+//Ruta opcional
+Route::get('utgz/{nombre?}',function($nombre="Por favor inserta un valor."){
+	return "Hola ".$nombre;
 });
-Route::get('wix', function () {
-    return view('wix.wix');
-})->name('wix');
-Route::get('tienda', function () {
-    return view('wix.tienda');
-})->name('tienda');
-Route::get('tienda/detalles', function () {
-    return view('wix.detalles');
-})->name('detallesproducto');
+Route::get('ejemplo',function(){
+	return view('ejemplo');
+});
+Route::get('wix',function(){
+	return view('wix.wix');
+})->name("wix");
+Route::get('tienda',function(){
+	return view('wix.tienda');
+})->name("tienda");
 
-Route::resource('categorias','CategoriasController');
-Route::resource('usuarios','UsersController')->middleware('auth','admin');//auntenticar correos 
-Route::resource('productos','ProductosController');
-Route::resource('roles','RolesController');
+Route::get('tienda/detalles',function(){
+	return view('wix.detalles');
+})->name('detallesProducto');
+
+Route::prefix('admin')->group(function(){
+	Route::resource('categorias','CategoriasController')->middleware('auth','admin');
+	Route::resource('usuarios','UsersController')->middleware('auth','admin');
+		Route::post('/usuarios/buscar','UsersController@buscar')->middleware('auth','admin');
+	Route::resource('productos','ProductosController')->middleware('auth','admin');
+	Route::resource('roles','RolesController')->middleware('auth','admin');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//cmd el comando php artisan make:middleware Check*campo*
-//Nos vamos a checar el archivo creado CheckaAdmin Kernel admin AuthenticatesUser app 

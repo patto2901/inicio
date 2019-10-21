@@ -17,9 +17,16 @@ class UsersController extends Controller
     public function index()
     {
         //
-        $usuarios=User::all();//para hacer una consulta de mostrar todo de la tabla Users
-        return view('wix.usuarios.usuarios',['usuarios'=>$usuarios]);
-        //carpetaprincipal.carpetacontenido.archivo, pasar la variable a la vista a la variable recien creada
+        $usuarios=User::all();
+
+        return view('wix.usuarios.usuario',['usuarios'=>$usuarios]);
+    }
+
+    public function buscar(Request $request)
+    {
+        //
+        $usuarios=User::all()->where('nombre',[$request->buscar]);
+        return view('wix.usuarios.usuario',['usuarios'=>$usuarios]);
     }
 
     /**
@@ -31,6 +38,7 @@ class UsersController extends Controller
     {
         //
         $roles=Role::all();
+
         return view('wix.usuarios.nuevoUsuario',['roles'=>$roles]);
     }
 
@@ -44,16 +52,16 @@ class UsersController extends Controller
     {
         //
         $usuario=new User;
-        $usuario->nombre=$request->nombre;
-        $usuario->correo=$request->correo;
-        $usuario->telefono=$request->telefono;
-        $usuario->password=bcrypt($request->password);
-        $usuario->role_id=$request->role_id;
+            $usuario->nombre=$request->nombre;
+            $usuario->correo=$request->correo;
+            $usuario->telefono=$request->telefono;
+            $usuario->password=bcrypt($request->password);
+            $usuario->role_id=$request->role_id;
 
         $usuario->save();
 
-        return redirect('/usuarios');
-    } 
+        return redirect('/admin/usuarios');
+    }
 
     /**
      * Display the specified resource.
