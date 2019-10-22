@@ -41,7 +41,7 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Autenticacion y validacion
         $request->validate([
     'nombre' => 'required|max:255',
     'costo' => 'numeric|required',

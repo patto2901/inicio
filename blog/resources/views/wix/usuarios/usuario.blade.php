@@ -13,7 +13,7 @@
 				@csrf
 				  <div class="form-row align-items-center">
 				    <div class="col-auto">
-				      <label class="sr-only" for="inlineFormInputGroup">Username</label>
+				      <label class="sr-only" for="inlineFormInputGroup">Nombre</label>
 				      <div class="input-group mb-2">
 				        <div class="input-group-prepend">
 				          <div class="input-group-text">Buscar</div>
@@ -22,7 +22,7 @@
 				      </div>
 				    </div>
 				    <div class="col-auto">
-				      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+				      <button type="submit" class="btn btn-primary mb-2">Buscar</button>
 				    </div>
 				  </div>
 			</form>
@@ -43,7 +43,7 @@
 						<td>{{$usuario->nombre}}</td>
 						<td>{{$usuario->correo}}</td>
 						<td>{{$usuario->telefono}}</td>
-						<td>{{$usuario->role_id->rol}}</td>
+						<td>{{$usuario->role->rol}}</td>
 						<td><a class="btn btn-primary" href="">Editar</a></td>
 						<td><a class="btn btn-danger" href="">Eliminar</a></td>
 					</tr>
