@@ -17,9 +17,15 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         //Condicional para que revise el tipo de usuario
+        if(Auth::check()){
+
+
         if (Auth::user()->role_id!=1) {
-          return redirect('/home'); 
+          return redirect('/login'); 
         }
         return $next($request);
+    }else{
+        return redirect('/login');
     }
+}
 }

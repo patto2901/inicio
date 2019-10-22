@@ -40,11 +40,11 @@ Route::get('tienda/detalles',function(){
 })->name('detallesProducto');
 
 Route::prefix('admin')->group(function(){
-	Route::resource('categorias','CategoriasController')->middleware('auth','admin');
-	Route::resource('usuarios','UsersController')->middleware('auth','admin');
-		Route::post('/usuarios/buscar','UsersController@buscar')->middleware('auth','admin');
-	Route::resource('productos','ProductosController')->middleware('auth','admin');
-	Route::resource('roles','RolesController')->middleware('auth','admin');
+	Route::resource('categorias','CategoriasController')->middleware('admin');
+	Route::resource('usuarios','UsersController')->middleware('admin');
+		Route::post('/usuarios/buscar','UsersController@buscar')->middleware('admin');
+	Route::resource('productos','ProductosController')->middleware('admin');
+	Route::resource('roles','RolesController')->middleware('admin');
 });
 
 Auth::routes();
