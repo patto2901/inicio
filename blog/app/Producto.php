@@ -12,4 +12,7 @@ class Producto extends Model
     public function carritos(){
 	return $this->belongsToMany('App\Carrito');
 }
+   public function categoria(){
+	return $this->belongsTo('App\Categoria');
+}
 }

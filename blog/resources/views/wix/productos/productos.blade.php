@@ -27,7 +27,7 @@
                     	<td class="producto-costo">{{$producto->costo}}</td>
                     	<td class="producto-marca">{{$producto->marca}}</td>
                     	<td class="producto-cantidad">{{$producto->cantidad}}</td>
-                    	<td class="producto-categoria">{{$producto->categoria_id}}</td>
+                    	<td class="producto-categoria">{{$producto->categoria->nombre}}</td>
                     	<td>
                           <button type="button" class="btn btn-outline-info detalles-producto">Detalles</button></td>
                     </tr>

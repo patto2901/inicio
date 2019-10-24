@@ -8,7 +8,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/wix">Inicio</a></li>
     <li class="breadcrumb-item"><a href="/tienda">Tienda</a></li>
-    <li class="breadcrumb-item active" aria-current="detalles">Detalles</li>
+    <li class="breadcrumb-item active" aria-current="page">Detalles</li>
   </ol>
 </nav>
 <div id="img_detalles">

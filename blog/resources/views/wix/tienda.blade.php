@@ -9,7 +9,7 @@
 </div>
 @for($i=0;$i<3;$i++)
 <div class="row justify-content-md-center">
-	<a href="{{route('detallesproducto')}}">
+	<a href="{{route('detallesProducto')}}">
 	<div class="col-lg-2">
 		<div class="img-tienda" >
 			<img class="img-fluid" src="img/img1.webp">
@@ -24,7 +24,7 @@
 	</a>
 	</div>
 	<div class="col-lg-2">
-		<a href="{{route('detallesproducto')}}">
+		<a href="{{route('detallesProducto')}}">
 		<div class="img-tienda" >
 			<img class="img-fluid" src="img/img2.jpg">
 			<div class="pre-img-tienda">
@@ -37,7 +37,7 @@
 	</a>
 	</div>
 		<div class="col-lg-2">
-			<a href="{{route('detallesproducto')}}">
+			<a href="{{route('detallesProducto')}}">
 		<div class="img-tienda" >
 			<img class="img-fluid" src="img/img3.jpg">
 			<div class="pre-img-tienda">
@@ -50,7 +50,7 @@
 	</a>
 	    </div>
 	<div class="col-lg-2">
-		<a href="{{route('detallesproducto')}}">
+		<a href="{{route('detallesProducto')}}">
 		<div class="img-tienda" >
 			<img class="img-fluid" src="img/img4.jpg">
 			<div class="pre-img-tienda">
