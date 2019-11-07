@@ -3,6 +3,16 @@ $(document).ready(function() {
 //$(this).append("<li>Modelado Digital</li>");//agregar contenido append
 $(this).fadeOut("slow")
 });
+      $("#Cantidad").change(function(){
+         var stock=$("#stock").text();
+        var Cantidad=$("#Cantidad").val();
+        var dif=stock-Cantidad;
+        if (dif>=0) {
+           
+        }else{
+            $("#Cantidad").disable();
+        }
+      });
 
 $("#nombre").val("Escribe tu nombre");
 

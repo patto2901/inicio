@@ -31,14 +31,12 @@ Route::get('ejemplo',function(){
 Route::get('wix',function(){
 	return view('wix.wix');
 })->name("wix");
-Route::get('tienda',function(){
-	return view('wix.tienda');
-})->name("tienda");
+Route::get('tienda','TiendaController@index')->name('tienda');
 
-Route::get('tienda/detalles',function(){
-	return view('wix.detalles');
-})->name('detallesProducto');
+Route::get('tienda/detalles/{id_producto}','TiendaController@detalles')->name('detallesProducto');
+Route::prefix('user')->group(function(){
 
+});
 Route::prefix('admin')->group(function(){
 	Route::resource('categorias','CategoriasController')->middleware('admin');
 	Route::resource('usuarios','UsersController')->middleware('admin');

@@ -12,33 +12,33 @@
   </ol>
 </nav>
 <div id="img_detalles">
-<img class="img-fluid" src="/img/dama.jpg"> 
+<img class="img-fluid" src="{{asset('img/'.$producto->img)}}"> 
 </div>
 
 	</div>
 	<div class="col-4">
 		<br><br><br><br>
 		<p>
-			<h3>Soy un Producto</h3>
-		$300,00 MXN
+			<h3>{{$producto->nombre}}</h3>
+		Costo: ${{number_format($producto->costo,2)}} MXN
 		</p>
-		Cantidad
+		Stock: <label id="stock">{{$producto->cantidad}}</label>
 		<br>
 		<input id="Cantidad" type="number" name="Cantidad" value="1" size="3" >
-		<br>
-		<button type="button" class="btn btn-lg btn-block btn-dark">AGREGAR AL CARRITO</button>
+		<br><br>
+		<button type="button" class="btn btn-lg btn-block btn-primary">AGREGAR AL CARRITO</button>
 		<p>
 			<h5>INFORMACIÓN DEL PRODUCTO</h5>
 		</p>
 		<hr>
-		haoalasmsjdjdjskakalsjdasjdjkd
-		aksldldkdldlscdkwsksimdalkajwbefla
-		lakdsjfnñakjsdn
+		<p class="text-justify">
+		{{$producto->descripcion}}
+		</p>
 	</div>
 	
 </div>
 <div id="img-full" >
-	<img src="/img/dama.jpg">
+	<img src="{{asset('img/'.$producto->img)}}">
 </div>
 
 @endsection
