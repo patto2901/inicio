@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use App\Categoria;
+use App\Carrito;
+use Illuminate\Support\Facades\Auth;
 
 class TiendaController extends Controller
 {
@@ -14,9 +17,11 @@ class TiendaController extends Controller
      */
     public function index()
     {
+
         //
-        $productos=Producto::all();
-        return view('wix.tienda',['productos'=>$productos]);//retornar a una vista con los productos que se van agregando
+        $categorias=Categoria::all();
+        $productos=Producto::paginate(12);
+        return view('wix.tienda',['productos'=>$productos, 'categorias'=>$categorias]);//retornar a una vista con los productos que se van agregando
     }
     public function detalles ($id_producto){
         $producto=Producto::find($id_producto);
@@ -25,6 +30,13 @@ class TiendaController extends Controller
             
         }
 
+public function categorias($id_categoria){
+     $categorias=Categoria::all();
+    $productos=Producto::where('categoria_id',$id_categoria)->paginate(12);
+    
+
+ return view('wix.tienda',['productos'=>$productos, 'categorias'=>$categorias]);
+}
     /**
      * Show the form for creating a new resource.
      *
@@ -44,6 +56,22 @@ class TiendaController extends Controller
     public function store(Request $request)
     {
         //
+          if (isset(Auth::user()->id)){
+            $id_user=Auth::user()->id;
+            $carrito=Carrito::where('user_id',$id_user)->first();
+            if ($carrito) {
+               
+            }else{
+                $carrito= new Carrito;
+                    $carrito->estatus=0;
+                    $carrito->user_id=$id_user;
+                $carrito->save();
+            }
+
+            return $carrito;
+        }else{
+            return redirect('/login');
+        }
     }
 
     /**

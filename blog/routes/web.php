@@ -28,12 +28,14 @@ Route::get('utgz/{nombre?}',function($nombre="Por favor inserta un valor."){
 Route::get('ejemplo',function(){
 	return view('ejemplo');
 });
+Route::get('categorias/{id_categoria}','TiendaController@categorias')->name('selectCategoria');
 Route::get('wix',function(){
 	return view('wix.wix');
 })->name("wix");
 Route::get('tienda','TiendaController@index')->name('tienda');
 
 Route::get('tienda/detalles/{id_producto}','TiendaController@detalles')->name('detallesProducto');
+Route::post('tienda','TiendaController@store')->name('tienda.store');
 Route::prefix('user')->group(function(){
 
 });

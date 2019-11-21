@@ -36,6 +36,9 @@
 			      </li>
 			    </ul>
 			    <ul class="navbar-nav ml-auto">
+			    	<li>
+        <i id="img-carrito" class="fas fa-2x fa-shopping-bag"></i> <span id="nproductos" class="badge badge-light">0</span>
+      </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

@@ -5,13 +5,19 @@ $(this).fadeOut("slow")
 });
       $("#Cantidad").change(function(){
          var stock=$("#stock").text();
+          var stock2=$("#stock2").text();
         var Cantidad=$("#Cantidad").val();
         var dif=stock-Cantidad;
-        if (dif>=0) {
-           
+if (Cantidad<0) {
+ $("#Cantidad").addClass("is-invalid");
+}else{
+     if (dif>=0) {
+           $("#Cantidad").removeClass("is-invalid");
         }else{
-            $("#Cantidad").disable();
-        }
+            $("#Cantidad").addClass("is-invalid");
+        }  
+}
+       
       });
 
 $("#nombre").val("Escribe tu nombre");

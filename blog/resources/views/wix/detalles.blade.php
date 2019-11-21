@@ -24,9 +24,15 @@
 		</p>
 		Stock: <label id="stock">{{$producto->cantidad}}</label>
 		<br>
-		<input id="Cantidad" type="number" name="Cantidad" value="1" size="3" >
+		<form method="post" action="{{route('tienda.store')}}">
+			@csrf()
+			<input type="hidden" name="id_producto" value="{{$producto->id}}">
+		<input id="Cantidad" class="form-control" type="number" name="Cantidad" value="1" size="3" >
+		<div class="invalid-feedback">
+			Stock Insuficiente
+		</div>
 		<br><br>
-		<button type="button" class="btn btn-lg btn-block btn-primary">AGREGAR AL CARRITO</button>
+		<button type="submit" class="btn btn-lg btn-block btn-primary">AGREGAR AL CARRITO</button>
 		<p>
 			<h5>INFORMACIÓN DEL PRODUCTO</h5>
 		</p>
