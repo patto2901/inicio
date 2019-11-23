@@ -25,10 +25,10 @@
 			@foreach($carritos->productos as $producto)
 			<tr>
 				<td>{{($loop->index+1)}}</td>
-				<td>{{$producto->img}}</td>
+				<td class="producto-img"><img class="img-fluid img-producto" src="{{asset('/img/'.$producto->img)}}" alt="{{$producto->descripcion}}"></td>
 				<td>{{$producto->nombre}}</td>
 				<td></td>
-				<td>{{$producto->costo}}</td>
+				<td>${{number_format($producto->costo,2)}} MXN</td>
 				<td></td>
 			</tr>
 @endforeach
