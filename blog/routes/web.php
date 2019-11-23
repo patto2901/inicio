@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('wix.wix');
 });
 Route::get('pumasraw',function(){
 	return "Hola Felipe Sánchez";
@@ -33,6 +33,7 @@ Route::get('wix',function(){
 	return view('wix.wix');
 })->name("wix");
 Route::get('tienda','TiendaController@index')->name('tienda');
+Route::get('carrito','TiendaController@carrito')->name('carrito');//get('ruta','controlador@'metodo que se ejecutara)->apodo o nombre de la ruta
 
 Route::get('tienda/detalles/{id_producto}','TiendaController@detalles')->name('detallesProducto');
 Route::post('tienda','TiendaController@store')->name('tienda.store');

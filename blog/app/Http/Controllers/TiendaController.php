@@ -7,6 +7,7 @@ use App\Producto;
 use App\Categoria;
 use App\Carrito;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class TiendaController extends Controller
 {
@@ -37,6 +38,19 @@ public function categorias($id_categoria){
 
  return view('wix.tienda',['productos'=>$productos, 'categorias'=>$categorias]);
 }
+
+public function carrito(){//lo que mandamos a llamar en web.php que visualiza carrito.blade.php
+   if (isset(Auth::user()->id)){ //Para validar que este dentro de una sesion
+            $id_user=Auth::user()->id;
+            $user=User::find($id_user);
+            $carrito=User::find($id_user)->carrito;
+            return view('wix.carrito',['carritos'=>$carrito]);//retornamos a la vista carrito pasamos la variable carrito a la vista atraves de la variable carrito.
+     }else{
+        return redirect('/login');//si no hay sesion lo regresamos a iniciar sesion
+     }
+     
+ 
+}
     /**
      * Show the form for creating a new resource.
      *
@@ -58,8 +72,11 @@ public function categorias($id_categoria){
         //
           if (isset(Auth::user()->id)){
             $id_user=Auth::user()->id;
+            $user=User::find($id_user);
+
             $carrito=Carrito::where('user_id',$id_user)->first();
             if ($carrito) {
+                $carrito->productos()->attach($request->id_producto);
                
             }else{
                 $carrito= new Carrito;

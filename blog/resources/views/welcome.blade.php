@@ -86,12 +86,12 @@
 
                 <div class="links">
                     <a href="https://laravel.com/docs">TU</a>
-                    <a href="https://laracasts.com">JEFA</a>
-                    <a href="https://laravel-news.com">NO </a>
+                    <a href="https://laracasts.com">MAMÁ</a>
+                    <a href="https://laravel-news.com">SI</a>
                     <a href="https://blog.laravel.com">TE</a>
                     <a href="https://nova.laravel.com">QUIERE</a>
-                    <a href="https://forge.laravel.com">JAJAJA</a>
-                    <a href="https://github.com/laravel/laravel">POR PUTO</a>
+                    <a href="https://forge.laravel.com"><3</a>
+                    <a href="https://github.com/laravel/laravel">SORRY</a>
                 </div>
             </div>
         </div>
