@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col">
 		<br><br><br>
-		<h2>Lista de Productos</h2>
+		<h2>Lista de Productos</h2> 
 		<table class="table">
 			<tr>
 				<th>#</th>

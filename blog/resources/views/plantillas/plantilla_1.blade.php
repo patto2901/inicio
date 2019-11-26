@@ -35,10 +35,23 @@
 			        <a class="nav-link" href="#">Distribuidores</a>
 			      </li>
 			    </ul>
+			    @php
+			    if(Auth::user()){
+
+
+			     $carritos=App\User::find(Auth::user()->id)->carrito; 
+			     $productos=$carritos->productos->unique('id');
+			     $cantidad=$productos->count();
+			 }else{
+			 $cantidad=0;
+			}
+			    @endphp
+			    <!-- buscamos el carrito del usuario con la relacion usuario y carrito y como no estamos en un controlador necesitamos la ruta completa del modelo, y se manda a llamar el metodo find, despues buscamos el id del usuario que inicio sesion -->
+			    <!-- contamos los productos y ahora los mostraremos en la variable--->
 			    <ul class="navbar-nav ml-auto">
 			    	<li>
 			    		<a href="{{route('carrito')}}">
-        <i id="img-carrito" class="fas fa-2x fa-shopping-bag"></i> <span id="nproductos" class="badge badge-light">0</span></a>
+        <i id="img-carrito" class="fas fa-2x fa-shopping-bag"></i> <span id="nproductos" class="badge badge-light">{{$cantidad}}</span></a>
       </li>
                         <!-- Authentication Links -->
                         @guest

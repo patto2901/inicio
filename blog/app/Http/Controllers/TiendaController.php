@@ -43,7 +43,15 @@ public function carrito(){//lo que mandamos a llamar en web.php que visualiza ca
    if (isset(Auth::user()->id)){ //Para validar que este dentro de una sesion
             $id_user=Auth::user()->id;
             $user=User::find($id_user);
-            $carrito=User::find($id_user)->carrito;
+            $carrito=User::find($id_user)->carrito;//busca el carrito del perfil
+            if (!$carrito) {
+               $carrito= new Carrito;
+                    $carrito->estatus=0;
+                    $carrito->user_id=$id_user;
+                $carrito->save();
+                 $carrito->productos()->attach($request->id_producto);
+            }//en caso de que queramos entrar al carrito sin haber agregad productos formar alternativa de agregarlo y agrega el producto en automatico
+
             return view('wix.carrito',['carritos'=>$carrito]);//retornamos a la vista carrito pasamos la variable carrito a la vista atraves de la variable carrito.
      }else{
         return redirect('/login');//si no hay sesion lo regresamos a iniciar sesion
@@ -76,7 +84,7 @@ public function carrito(){//lo que mandamos a llamar en web.php que visualiza ca
 
             $carrito=Carrito::where('user_id',$id_user)->first();
             if ($carrito) {
-                $carrito->productos()->attach($request->id_producto);
+                $carrito->productos()->attach($request->id_producto);//crea el carrito al agregar el producto
                
             }else{
                 $carrito= new Carrito;
@@ -85,7 +93,7 @@ public function carrito(){//lo que mandamos a llamar en web.php que visualiza ca
                 $carrito->save();
             }
 
-            return $carrito;
+            return redirect('/carrito');
         }else{
             return redirect('/login');
         }
