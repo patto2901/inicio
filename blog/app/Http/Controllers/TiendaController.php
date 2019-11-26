@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Producto;
 use App\Categoria;
 use App\Carrito;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
@@ -58,6 +59,12 @@ public function carrito(){//lo que mandamos a llamar en web.php que visualiza ca
      }
      
  
+}
+public function eliminarProducto($producto_id){
+    DB::table('carrito_producto')->where('producto_id', '=', $producto_id)->delete();
+    
+    return redirect('/carrito');
+
 }
     /**
      * Show the form for creating a new resource.

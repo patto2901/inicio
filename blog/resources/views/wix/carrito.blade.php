@@ -49,7 +49,7 @@
 				@endphp
 				<!--Este es para tener el precio total de todos los productos $tf-->
 				<td  class="text-center">${{number_format($total,2)}} MXN</td>
-				<td class="text-center">boton de eliminar</td>
+				<td class="text-center"><a class="btn btn-danger" href="{{route('eliminar.producto',$producto->id)}}" role="button">Eliminar</a></td>
 			</tr>
 @endforeach
 			<tr class="text-center">
